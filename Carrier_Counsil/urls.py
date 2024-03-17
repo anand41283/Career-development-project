@@ -25,6 +25,8 @@ from CarrierApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('student/',include("Student.urls")),
-    path('home/',views.Home.as_view(),name="stud_home")
+    path('home/',views.Home.as_view(),name="home"),
+    path('User_reg/',views.UserRegistration.as_view(),name="U_reg"),
+    path('login/',views.LoginView.as_view(),name="login"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

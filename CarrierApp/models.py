@@ -8,6 +8,8 @@ class Login(AbstractUser):
     name=models.CharField(max_length=30,null=True)
     email=models.EmailField(max_length=70,null=True,unique=True)
 
+
+
 class College(models.Model):
     name=models.CharField(max_length=50,null=True)
     place=models.CharField(max_length=50,null=True)
@@ -17,7 +19,7 @@ class College(models.Model):
     user=models.OneToOneField(Login, on_delete=models.DO_NOTHING,null=True,related_name="college_profile")
 
     def __str__(self):
-        self.name
+        return self.name
 
 class Course(models.Model):
     College_name=models.ForeignKey(College, on_delete=models.CASCADE,null=True)
@@ -34,7 +36,7 @@ class Student(models.Model):
     user=models.OneToOneField(Login, on_delete=models.DO_NOTHING,related_name="student_profile")
 
     def __str__(self):
-        self.name
+        return self.name
 
 class Mark(models.Model):
     student_name=models.ForeignKey(Student, on_delete=models.CASCADE,null=True)
@@ -44,7 +46,7 @@ class Question(models.Model):
     question=models.CharField(max_length=300,null=True)
 
     def __str__(self):
-        self.question
+        return self.question
 
 class Answer(models.Model):
     question=models.ForeignKey(Question, on_delete=models.CASCADE,null=True)

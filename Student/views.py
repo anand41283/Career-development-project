@@ -6,3 +6,7 @@ from django.views.generic import TemplateView,View
 class StudentHome(TemplateView):
     template_name='Stud_templates/index.html'
 
+
+
+
+
