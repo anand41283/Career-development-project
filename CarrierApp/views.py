@@ -40,10 +40,12 @@ class LoginView(FormView):
             print(user)
             if user:
                 login(request, user)
-                if request.user.is_student:
+                if request.user.is_superuser:
+                    return redirect('super_home')
+                elif request.user.is_student:
                     return redirect('Stud_home')
                 else:
-                    return redirect('home')
+                    return redirect('college_home')
             else:
                 # Handle invalid credentials
                 print("invalid")
@@ -51,6 +53,11 @@ class LoginView(FormView):
         else:
             # Handle form validation errors
             return redirect('login')       
+        
+class Logout(View):
+    def get(self,request):
+        logout(request)
+        return redirect("home")        
 
       
 

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'CarrierApp',
     'Student',
+    'college',
+    'Admin',
 ]
 
 AUTH_USER_MODEL = 'CarrierApp.Login'
