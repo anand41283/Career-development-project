@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser
 
 class Login(AbstractUser):
     is_student=models.BooleanField(default=False)
-    is_college=models.BooleanField(default=False)
     name=models.CharField(max_length=30,null=True)
     email=models.EmailField(max_length=70,null=True,unique=True)
 
