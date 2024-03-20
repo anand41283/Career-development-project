@@ -4,7 +4,7 @@
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Student Dashboard</title>
+	<title>College Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
@@ -19,7 +19,7 @@
 		<div class="main-header">
 			<div class="logo-header">
 				<a href="#" class="logo">
-					Student Dashboard
+					College Dashboard
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
 					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +114,7 @@
 						</li> -->
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
-								aria-expanded="false"> <img src="{% static 'assets/img/user.png' %}" alt="user-img"
+								aria-expanded="false"> <img src="{% static 'assets/img/profile.jpg' %}" alt="user-img"
 									width="36" class="img-circle"><span>{{request.user}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
@@ -149,23 +149,23 @@
 			<div class="scrollbar-inner sidebar-wrapper">
 				<div class="user">
 					<div class="photo">
-						<img src="{% static 'assets/img/user.png' %}">
+						<img src="{% static 'assets/img/profile.jpg' %}">
 					</div>
 					<div class="info">
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
 								{{request.user}}
-								<span class="user-level">Student</span>
+								<span class="user-level">College</span>
 								<span class="caret"></span>
 							</span>
 						</a>
 						<div class="clearfix"></div>
 
 						<div class="collapse in" id="collapseExample" aria-expanded="true">
-							{% if request.user.student_profile %}
+							{% if request.user.college_profile %}
 							<ul class="nav">
 								<li>
-									<a href="{% url 'profile_view' %}">
+									<a href="#profile">
 										<span class="link-collapse">My Profile</span>
 									</a>
 								</li>
@@ -176,7 +176,7 @@
 								</li>
 								{% else %}
 								<li>
-									<a href="{% url 'Stud_Aprofile' %}">
+									<a href="{% url 'college_ProfileAdd' %}">
 										<span class="link-collapse">Add profile</span>
 									</a>
 								</li>
@@ -186,27 +186,27 @@
 					</div>
 				</div>
 				<ul class="nav">
-					<li class="nav-item active">
-						<a href="#">
+					<!-- <li class="nav-item active">
+						<a href="{% url 'course_Add' %}">
 							<i class="la la-dashboard"></i>
-							<p>View Colleges</p>
-							<!-- <span class="badge badge-count">5</span> -->
+							<p>Add Courses</p>
+							<span class="badge badge-count">5</span>
 						</a>
-					</li>
-					<li class="nav-item active">
+					</li> -->
+					<!-- <li class="nav-item active">
 						<a href="#">
 							<i class="la la-table"></i>
 							<p>Take Aptitiude</p>
-							<!-- <span class="badge badge-count">14</span> -->
+							<span class="badge badge-count">14</span>
 						</a>
-					</li>
-					<li class="nav-item active">
+					</li> -->
+					<!-- <li class="nav-item active">
 						<a href="#">
 							<i class="la la-keyboard-o"></i>
 							<p>View Marks & Colleges</p>
-							<!-- <span class="badge badge-count">50</span> -->
+							<span class="badge badge-count">50</span>
 						</a>
-					</li>
+					</li> -->
 
 					<!-- <li class="nav-item">
 							<a href="tables.html">
@@ -247,7 +247,20 @@
 		<div class="main-panel">
 			<div class="content">
 				<div class="container-fluid">
-					<h4 class="page-title">Dashboard</h4>
+					<h4 class="page-title">Add Courses</h4>
+                    {%if form.errors%}
+                    {{form.errors}}
+                    {%endif%}
+                    <form action="" method="post">
+                        {%csrf_token%}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Course Name</label>
+                            <input type="text" placeholder="Course name" class="form-control" id="name"
+                                aria-describedby="emailHelp" name="Courses">
+                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 					<!-- <div class="row">
 						<div class="col-md-3">
 							<div class="card card-stats card-warning">

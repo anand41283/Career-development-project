@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class Login(AbstractUser):
     is_student=models.BooleanField(default=False)
-    name=models.CharField(max_length=30,null=True)
+    name=models.CharField(max_length=100,null=True)
     email=models.EmailField(max_length=70,null=True,unique=True)
 
 
@@ -13,7 +13,7 @@ class College(models.Model):
     name=models.CharField(max_length=50,null=True)
     place=models.CharField(max_length=50,null=True)
     Type=models.CharField(max_length=50,null=True)
-    Description=models.CharField(max_length=300,null=True) 
+    Description=models.TextField(max_length=300,null=True) 
     cut_off_mark=models.PositiveBigIntegerField(null=True)
     user=models.OneToOneField(Login, on_delete=models.DO_NOTHING,null=True,related_name="college_profile")
 

@@ -30,29 +30,29 @@ class LoginView(FormView):
     template_name='login.html'
     form_class=LoginForm
 
-    def post(self,request,*args,**kwargs):
-        form=LoginForm(request.POST)
+    def post(self, request, *args, **kwargs):
+        form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            print(username,password)
-            user = authenticate(request,username=username, password=password)
-            print(user)
+            user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
                 if request.user.is_superuser:
+                    request.session['user_type'] = 'superuser'
                     return redirect('super_home')
                 elif request.user.is_student:
+                    request.session['user_type'] = 'student'
                     return redirect('Stud_home')
                 else:
+                    request.session['user_type'] = 'college'
                     return redirect('college_home')
             else:
-                # Handle invalid credentials
-                print("invalid")
-                return redirect('login')  # Redirect back to login page with a message or something
+                
+                return redirect('login')
         else:
-            # Handle form validation errors
-            return redirect('login')       
+            
+            return redirect('login')      
         
 class Logout(View):
     def get(self,request):
