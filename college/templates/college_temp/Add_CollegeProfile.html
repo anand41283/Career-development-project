@@ -114,12 +114,12 @@
                         <!-- </li> -->
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
-                                aria-expanded="false"> <img src="{% static 'assets/img/profile.jpg' %}" alt="user-img"
+                                aria-expanded="false"> <img src="{% static 'assets/img/profile2.png' %}" alt="user-img"
                                     width="36" class="img-circle"><span>{{request.user}}</span></span> </a>
                             <ul class="dropdown-menu dropdown-user">
                                 <li>
                                     <div class="user-box">
-                                        <div class="u-img"><img src="{% static 'assets/img/profile.jpg' %}" alt="user">
+                                        <div class="u-img"><img src="{% static 'assets/img/profile2.png' %}" alt="user">
                                         </div>
                                         <div class="u-text">
                                             <h4>{{request.user}}</h4>
@@ -149,7 +149,7 @@
             <div class="scrollbar-inner sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <img src="{% static 'assets/img/profile.jpg' %}">
+                        <img src="{% static 'assets/img/profile2.png' %}">
                     </div>
                     <div class="info">
                         <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -255,23 +255,25 @@
                         {%csrf_token%}
                         <div class="mb-3">
                             <label for="name" class="form-label">College Name</label>
-                            <input type="text" placeholder="College name" class="form-control" id="name"
-                                aria-describedby="emailHelp" name="name">
+							{{form.name}}
+                            <!-- <input type="text" placeholder="College name" class="form-control" id="name"
+                                aria-describedby="emailHelp" name="name" value=""> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="place" class="form-label">Place</label>
-                            <input type="text" placeholder="Place" class="form-control" id="place"
-                                aria-describedby="emailHelp" name="place">
+							{{form.place}}
+                            <!-- <input type="text" placeholder="Place" class="form-control" id="place"
+                                aria-describedby="emailHelp" name="place"> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="gender" class="form-label" name="Type">Type: </label>
                             <select class="form-select" id="gender" name="Type">
-                                <option value="Govt">Govt</option>
-                                <option value="Autonomous">Autonomous</option>
-                                <option value="Aided">Aided</option>
-                                <option value="Others">Others</option>
+                                <option value="Govt" {% if form.instance.Type == 'Govt' %} selected {% endif %}>Govt</option>
+                                <option value="Autonomous" {% if form.instance.Type == 'Autonomous' %} selected {% endif %}>Autonomous</option>
+                                <option value="Aided" {% if form.instance.Type == 'Aided' %} selected {% endif %}>Aided</option>
+                                <option value="Others" {% if form.instance.Type == 'Others' %} selected {% endif %}>Others</option>
                             </select>
                         </div>
                         <!-- <div class="mb-3">
@@ -295,14 +297,16 @@
                         </div> -->
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Cutt-Off Mark</label>
-                            <input type="number" class="form-control" name="cut_off_mark" id="exampleInputPassword1"
+							{{form.cut_off_mark}}
+                            <!-- <input type="number" class="form-control" name="cut_off_mark" id="exampleInputPassword1"
                                 placeholder="Cutt-Off Mark">
-                                <div id="emailHelp" class="form-text">This is the Mark for the admission.</div>
+                                <div id="emailHelp" class="form-text">This is the Mark for the admission.</div> -->
 
                         </div>
                         <div class="mb-3">
                             <label for="place" class="form-label">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Description"></textarea>
+							{{form.Description}}
+                            <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Description"></textarea> -->
                                                                
                         </div>
                         <!-- <div class="mb-3 form-check">

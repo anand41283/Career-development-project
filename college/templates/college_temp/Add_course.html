@@ -114,7 +114,7 @@
 						</li> -->
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
-								aria-expanded="false"> <img src="{% static 'assets/img/profile.jpg' %}" alt="user-img"
+								aria-expanded="false"> <img src="{% static 'assets/img/profile2.png' %}" alt="user-img"
 									width="36" class="img-circle"><span>{{request.user}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
@@ -149,7 +149,7 @@
 			<div class="scrollbar-inner sidebar-wrapper">
 				<div class="user">
 					<div class="photo">
-						<img src="{% static 'assets/img/profile.jpg' %}">
+						<img src="{% static 'assets/img/profile2.png' %}">
 					</div>
 					<div class="info">
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -165,7 +165,7 @@
 							{% if request.user.college_profile %}
 							<ul class="nav">
 								<li>
-									<a href="#profile">
+									<a href="{% url 'CProfile_view' request.user.id %}">
 										<span class="link-collapse">My Profile</span>
 									</a>
 								</li>

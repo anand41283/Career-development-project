@@ -114,12 +114,12 @@
 						</li> -->
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
-								aria-expanded="false"> <img src="{% static 'assets/img/profile.jpg' %}" alt="user-img"
+								aria-expanded="false"> <img src="{% static 'assets/img/profile2.png' %}" alt="user-img"
 									width="36" class="img-circle"><span>{{request.user}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
-										<div class="u-img"><img src="{% static 'assets/img/profile.jpg' %}" alt="user">
+										<div class="u-img"><img src="{% static 'assets/img/profile2.png' %}" alt="user">
 										</div>
 										<div class="u-text">
 											<h4>{{request.user}}</h4>
@@ -149,7 +149,7 @@
 			<div class="scrollbar-inner sidebar-wrapper">
 				<div class="user">
 					<div class="photo">
-						<img src="{% static 'assets/img/profile.jpg' %}">
+						<img src="{% static 'assets/img/profile2.png' %}">
 					</div>
 					<div class="info">
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -165,12 +165,12 @@
 							{% if request.user.college_profile %}
 							<ul class="nav">
 								<li>
-									<a href="#profile">
+									<a href="{% url 'CProfile_view' request.user.id %}">
 										<span class="link-collapse">My Profile</span>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="{% url 'CProfile_edit' request.user.id %}">
 										<span class="link-collapse">Edit Profile</span>
 									</a>
 								</li>
@@ -744,36 +744,36 @@
 				</div>
 			</div>
 			<div style="margin-top: 380px;">
-			<footer class="footer" >
-				
-				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link" href="http://www.themekita.com">
-									ThemeKita
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Help
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="https://themewagon.com/license/#free-item">
-									Licenses
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<div class="copyright ml-auto">
-						2024, made with <i class="la la-heart heart text-danger"></i> by <a
-							href="http://www.themekita.com">Luminar technolab</a>
+				<footer class="footer">
+
+					<div class="container-fluid">
+						<nav class="pull-left">
+							<ul class="nav">
+								<li class="nav-item">
+									<a class="nav-link" href="http://www.themekita.com">
+										ThemeKita
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										Help
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="https://themewagon.com/license/#free-item">
+										Licenses
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="copyright ml-auto">
+							2024, made with <i class="la la-heart heart text-danger"></i> by <a
+								href="http://www.themekita.com">Luminar technolab</a>
+						</div>
 					</div>
-				</div>
-			
-			</footer>
-		</div>
+
+				</footer>
+			</div>
 		</div>
 	</div>
 	</div>

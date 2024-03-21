@@ -4,7 +4,7 @@
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Student Dashboard</title>
+	<title>Admin Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
@@ -18,8 +18,8 @@
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="{% url 'Stud_home' %}" class="logo">
-					Student Dashboard
+				<a href="{% url 'super_home' %}" class="logo">
+					Admin Dashboard
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
 					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -155,14 +155,14 @@
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
 								{{request.user}}
-								<span class="user-level">Student</span>
+								<span class="user-level">Admin</span>
 								<span class="caret"></span>
 							</span>
 						</a>
 						<div class="clearfix"></div>
 
 						<div class="collapse in" id="collapseExample" aria-expanded="true">
-							{% if request.user.student_profile %}
+							<!-- {% if request.user.student_profile %}
 							<ul class="nav">
 								
 								<li>
@@ -182,13 +182,13 @@
 									</a>
 								</li>
 								{% endif %}
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
 				<ul class="nav">
 					<li class="nav-item active">
-						<a href="{% url 'college_view' %}">
+						<a href="{% url 'college_list' %}">
 							<i class="la la-dashboard"></i>
 							<p>View Colleges</p>
 							<!-- <span class="badge badge-count">5</span> -->
@@ -197,14 +197,21 @@
 					<li class="nav-item active">
 						<a href="#">
 							<i class="la la-table"></i>
-							<p>Take Aptitiude</p>
+							<p>View Students</p>
+							<!-- <span class="badge badge-count">14</span> -->
+						</a>
+					</li>
+					<li class="nav-item active">
+						<a href="#">
+							<i class="la la-table"></i>
+							<p>Add Questions</p>
 							<!-- <span class="badge badge-count">14</span> -->
 						</a>
 					</li>
 					<li class="nav-item active">
 						<a href="#">
 							<i class="la la-keyboard-o"></i>
-							<p>View Marks & Colleges</p>
+							<p>Add answers</p>
 							<!-- <span class="badge badge-count">50</span> -->
 						</a>
 					</li>
@@ -248,7 +255,39 @@
 		<div class="main-panel">
 			<div class="content">
 				<div class="container-fluid">
-					<h4 class="page-title">Dashboard</h4>
+					<h4 class="page-title">Students</h4>
+                    <div class="card-body">
+						<table class="table table-head-bg-success table-striped table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Name</th>
+									<th scope="col">Place</th>
+									<th scope="col">Phone</th>
+									<th scope="col">Age</th>
+									<th scope="col">Gender</th>
+									<th scope="col">Email</th>
+									<th scope="col">Qualification</th>
+									<th scope="col">Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for i in data %}
+								<tr>
+									<td>{{i.name}}</td>
+									<td>{{i.place}}</td>
+									<td>{{i.phone}}</td>
+									<td>{{i.age}}</td>
+									<td>{{i.Gender}}</td>
+									<td>{{i.email}}</td>
+									<td>{{i.qualification}}</td>
+									<td><a class="btn btn-primary" href="{% url 'student_delete' i.id %}">Delete </a></td>
+								</tr>
+								
+								{% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
 					<!-- <div class="row">
 						<div class="col-md-3">
 							<div class="card card-stats card-warning">

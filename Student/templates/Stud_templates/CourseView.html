@@ -188,26 +188,26 @@
 				</div>
 				<ul class="nav">
 					<li class="nav-item active">
-						<a href="{% url 'college_view' %}">
+						<a href="#">
 							<i class="la la-dashboard"></i>
 							<p>View Colleges</p>
 							<!-- <span class="badge badge-count">5</span> -->
 						</a>
 					</li>
-					<li class="nav-item active">
+					<!-- <li class="nav-item active">
 						<a href="#">
 							<i class="la la-table"></i>
 							<p>Take Aptitiude</p>
-							<!-- <span class="badge badge-count">14</span> -->
+							<span class="badge badge-count">14</span>
 						</a>
 					</li>
 					<li class="nav-item active">
 						<a href="#">
 							<i class="la la-keyboard-o"></i>
 							<p>View Marks & Colleges</p>
-							<!-- <span class="badge badge-count">50</span> -->
+							<span class="badge badge-count">50</span>
 						</a>
-					</li>
+					</li> -->
 
 					<!-- <li class="nav-item">
 							<a href="tables.html">
@@ -248,7 +248,27 @@
 		<div class="main-panel">
 			<div class="content">
 				<div class="container-fluid">
-					<h4 class="page-title">Dashboard</h4>
+					<h4 class="page-title">Courses</h4>
+                    <div class="card-body">
+						<table class="table table-head-bg-success table-striped table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Course Name</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								{% for i in data %}
+								<tr>
+									<td>{{i.Courses}}</td>
+									
+								</tr>
+								
+								{% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
 					<!-- <div class="row">
 						<div class="col-md-3">
 							<div class="card card-stats card-warning">

@@ -18,14 +18,14 @@
     <div class="wrapper">
         <div class="main-header">
             <div class="logo-header">
-                <a href="#" class="logo">
+                <a href="{% url 'Stud_home' %}" class="logo">
                     Student Dashboard
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+                <!-- <button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button> -->
             </div>
             <nav class="navbar navbar-header navbar-expand-lg">
                 <div class="container-fluid">
@@ -113,13 +113,13 @@
 							</ul> -->
                         <!-- </li> -->
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
+                            <!-- <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
                                 aria-expanded="false"> <img src="{% static 'assets/img/user.png' %}" alt="user-img"
-                                    width="36" class="img-circle"><span>{{request.user}}</span></span> </a>
+                                    width="36" class="img-circle"><span>{{request.user}}</span></span> </a> -->
                             <ul class="dropdown-menu dropdown-user">
                                 <li>
-                                    <div class="user-box">
-                                        <div class="u-img"><img src="{% static 'assets/img/profile.jpg' %}" alt="user">
+                                    <!-- <div class="user-box">
+                                        <div class="u-img"><img src="{% static 'assets/img/user.png' %}" alt="user">
                                         </div>
                                         <div class="u-text">
                                             <h4>{{request.user}}</h4>
@@ -127,16 +127,16 @@
                                                 href="{%  url 'logout' %}"
                                                 class="btn btn-rounded btn-danger btn-sm">Logout</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <!-- <div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="ti-user"></i>Edit Profile</a> -->
-                                <!-- <a class="dropdown-item" href="#"></i> My Balance</a>
+								<a class="dropdown-item" href="#"><i class="ti-user"></i>Edit Profile</a>
+                                <a class="dropdown-item" href="#"></i> My Balance</a>
 									<a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
-									<div class="dropdown-divider"></div> -->
-                                <!-- <a class="dropdown-item" href=""><i class="fa fa-power-off"></i>
+									<div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href=""><i class="fa fa-power-off"></i>
 									Logout</a> -->
                             </ul>
                             <!-- /.dropdown-user -->
@@ -186,27 +186,27 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <!-- <li class="nav-item active">
                         <a href="#">
                             <i class="la la-dashboard"></i>
                             <p>View Colleges</p>
-                            <!-- <span class="badge badge-count">5</span> -->
+                            <span class="badge badge-count">5</span>
                         </a>
-                    </li>
-                    <li class="nav-item active">
+                    </li> -->
+                    <!-- <li class="nav-item active">
                         <a href="#">
                             <i class="la la-table"></i>
                             <p>Take Aptitiude</p>
-                            <!-- <span class="badge badge-count">14</span> -->
+                            <span class="badge badge-count">14</span>
                         </a>
-                    </li>
-                    <li class="nav-item active">
+                    </li> -->
+                    <!-- <li class="nav-item active">
                         <a href="#">
                             <i class="la la-keyboard-o"></i>
                             <p>View Marks & Colleges</p>
-                            <!-- <span class="badge badge-count">50</span> -->
+                            <span class="badge badge-count">50</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <!-- <li class="nav-item">
 							<a href="tables.html">
@@ -254,47 +254,53 @@
                     <form action="" method="post">
                         {%csrf_token%}
                         <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" placeholder="Full name" class="form-control" id="name"
-                                aria-describedby="emailHelp" name="name">
+                            <label for="name" class="form-label"><b>Full Name:</b></label><br>
+							{{form.name}}
+                            <!-- <input type="text" placeholder="Full name" class="form-control" id="name"
+                                aria-describedby="emailHelp" name="name"> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="place" class="form-label">Place</label>
-                            <input type="text" placeholder="Place" class="form-control" id="place"
-                                aria-describedby="emailHelp" name="place">
+							{{form.place}}
+                            <!-- <input type="text" placeholder="Place" class="form-control" id="place"
+                                aria-describedby="emailHelp" name="place"> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="place" class="form-label">Phone</label>
-                            <input type="tel" placeholder="Phone" class="form-control" id="place"
-                                aria-describedby="emailHelp" name="phone">
+							{{form.phone}}
+                            <!-- <input type="tel" placeholder="Phone" class="form-control" id="place"
+                                aria-describedby="emailHelp" name="phone"> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="place" class="form-label">Age</label>
-                            <input type="number" placeholder="Age" class="form-control" id="place"
-                                aria-describedby="emailHelp" name="age">
+							{{form.age}}
+                            <!-- <input type="number" placeholder="Age" class="form-control" id="place"
+                                aria-describedby="emailHelp" name="age"> -->
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="gender" class="form-label" name="Gender">Gender: </label>
-                            <select class="form-select" id="gender" name="Gender">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="others">Others</option>
-                            </select>
+							<select class="form-select" id="gender" name="Gender">
+								<option value="male" {% if form.instance.Gender == 'male' %} selected {% endif %}>Male</option>
+								<option value="female" {% if form.instance.Gender == 'female' %} selected {% endif %}>Female</option>
+								<option value="others" {% if form.instance.Gender == 'others' %} selected {% endif %}>Others</option>
+							</select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" placeholder="Email"
+							{{form.email}}
+                            <!-- <input type="email" class="form-control" name="email" placeholder="Email"
                                 id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Qualification</label>
-                            <input type="text" class="form-control" name="qualification" id="exampleInputPassword1"
-                                placeholder="Qualification">
+							{{form.qualification}}
+                            <!-- <input type="text" class="form-control" name="qualification" id="exampleInputPassword1"
+                                placeholder="Qualification"> -->
                         </div>
                         <!-- <div class="mb-3 form-check">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
