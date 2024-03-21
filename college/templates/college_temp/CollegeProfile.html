@@ -19,7 +19,7 @@
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="#" class="logo">
+				<a href="{% url 'college_home' %}" class="logo">
 					College Dashboard
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -166,12 +166,12 @@
 							{% if request.user.college_profile %}
 							<ul class="nav">
 								<li>
-									<a href="#profile">
+									<a href="{% url 'CProfile_view' request.user.id %}">
 										<span class="link-collapse">My Profile</span>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="{% url 'CProfile_edit' request.user.id %}">
 										<span class="link-collapse">Edit Profile</span>
 									</a>
 								</li>
